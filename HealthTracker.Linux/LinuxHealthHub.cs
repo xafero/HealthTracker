@@ -1,15 +1,18 @@
 ﻿using HealthTracker.API;
 using System;
 using System.Runtime.InteropServices;
+using Mono.Unix.Native;
+using System.Threading;
 
 namespace HealthTracker.Linux
 {
     public class LinuxHealthHub : IHealthHub
     {
+private bool shouldRun = true;
+private readonly Thread watcher; 
+
         public LinuxHealthHub()
         {
-            //    Thread.Sleep(10 * 1000);
-
             var devId = Bluez.hci_get_route(IntPtr.Zero);
             Console.WriteLine(devId);
             var sockFd = Linux.socket(Consts.AF_BLUETOOTH, Consts.SOCK_RAW | Consts.SOCK_CLOEXEC, Consts.BTPROTO_HCI);
@@ -40,26 +43,36 @@ namespace HealthTracker.Linux
             status = Linux.setsockopt(sockFd, Consts.SOL_HCI, Consts.HCI_FILTER, ref filter, Marshal.SizeOf(filter));
             Console.WriteLine("fuck " + status);
 
-            int counter = 0;
-            while (true)
+
+watcher = new Thread(() => 
             {
-                var buffer = new byte[1024];
-                Linux.recvfrom(sockFd, ref buffer, buffer.Length, 0, IntPtr.Zero, 0);
-                Console.WriteLine(BitConverter.ToString(buffer));
-
-
-                counter++;
-                if (counter > 10)
-                    break;
-            }
-
-            OnHealthEvent?.Invoke(this, new SimpleData { Data = 42 });
+            while (shouldRun)
+            {
+                var bytes = new byte[44];
+                Syscall.recv(sockFd, bytes, (ulong)bytes.Length, 0);
+  var offset = 16;
+                const DeviceKind kind = DeviceKind.Scale;
+            var ts = new DateTimeOffset();
+            var weightKg = BitConverter.ToUInt16(new[] { bytes[5+offset], bytes[4+offset] }, 0) / 10f;
+            var finished = bytes[6+offset] != 255 && bytes[7+offset] != 255;
+            OnHealthEvent?.Invoke(this, new SimpleData
+            {
+                Kind = kind,
+                Time = ts,
+                Data = weightKg,
+                Unit = Unit.kg,
+                Status = finished ? DataKind.Final : DataKind.Transitional
+            });
+          }}) { IsBackground = true, Name = "Watcher" };
+watcher.Start();
         }
 
         public event DataHandler OnHealthEvent;
 
         public void Dispose()
         {
+           shouldRun = false;
+           watcher.Interrupt();           
         }
     }
 }
