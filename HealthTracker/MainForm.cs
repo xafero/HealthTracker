@@ -13,10 +13,12 @@ namespace HealthTracker
         public MainForm()
         {
             InitializeComponent();
+            Type hubType;
             if (Environment.OSVersion.Platform == PlatformID.Unix)
-                hub = new LinuxHealthHub();
+                hubType = Type.GetType("HealthTracker.Linux.LinuxHealthHub, HealthTracker.Linux");
             else
-                hub = new WindowsHealthHub();
+                hubType = Type.GetType("HealthTracker.WinRT.WindowsHealthHub, HealthTracker.WinRT");
+            hub = (IHealthHub)Activator.CreateInstance(hubType);
             hub.OnHealthEvent += Hub_OnHealthEvent;
             FormClosed += MainForm_FormClosed;
         }

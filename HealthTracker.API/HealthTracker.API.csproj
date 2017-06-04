@@ -38,6 +38,7 @@
     <Compile Include="IDataEvent.cs" />
     <Compile Include="IHealthHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflect.cs" />
     <Compile Include="SimpleData.cs" />
     <Compile Include="Unit.cs" />
   </ItemGroup>
