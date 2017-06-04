@@ -1,4 +1,5 @@
 ﻿using HealthTracker.API;
+using HealthTracker.Linux;
 using HealthTracker.WinRT;
 using System;
 using System.Windows.Forms;
@@ -12,7 +13,10 @@ namespace HealthTracker
         public MainForm()
         {
             InitializeComponent();
-            hub = new WindowsHealthHub();
+            if (Environment.OSVersion.Platform == PlatformID.Unix)
+                hub = new LinuxHealthHub();
+            else
+                hub = new WindowsHealthHub();
             hub.OnHealthEvent += Hub_OnHealthEvent;
             FormClosed += MainForm_FormClosed;
         }

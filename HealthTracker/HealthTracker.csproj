@@ -77,6 +77,10 @@
       <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
       <Name>HealthTracker.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Linux\HealthTracker.Linux.csproj">
+      <Project>{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}</Project>
+      <Name>HealthTracker.Linux</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HealthTracker.WinRT\HealthTracker.WinRT.csproj">
       <Project>{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}</Project>
       <Name>HealthTracker.WinRT</Name>
