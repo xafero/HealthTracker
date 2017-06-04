@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace HealthTracker.Linux
 {
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential, Pack = 2)]
     struct Sockaddr_hci
     {
         public UInt16 hci_family;

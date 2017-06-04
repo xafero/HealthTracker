@@ -2,15 +2,11 @@
 
 namespace HealthTracker.Linux
 {
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential, Pack = 2)]
     struct Hci_filter
     {
-        public ushort type_mask;
+        public uint type_mask;
         public ulong event_mask;
         public ushort opcode;
-
-        /*	public UInt32 type_mask;
-            public UInt64 event_mask;
-            public UInt16 opcode;  */
     }
 }

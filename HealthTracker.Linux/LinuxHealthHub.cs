@@ -27,7 +27,7 @@ namespace HealthTracker.Linux
 
             var filter = new Hci_filter
             {
-                type_mask = (ushort)0x00000010,
+                type_mask = 0x00000010,
                 event_mask = 0x4000000000000000ul,
                 opcode = 0
             };
