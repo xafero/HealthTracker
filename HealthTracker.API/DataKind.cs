@@ -2,6 +2,8 @@
 {
     public enum DataKind
     {
+        Unknown = 0,
+
         Transitional,
 
         Final

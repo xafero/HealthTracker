@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.API", "Health
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Linux", "HealthTracker.Linux\HealthTracker.Linux.csproj", "{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Core", "HealthTracker.Core\HealthTracker.Core.csproj", "{BA120946-FCAA-4836-B915-0E18718DC6E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

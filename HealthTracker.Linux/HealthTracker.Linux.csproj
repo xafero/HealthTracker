@@ -47,6 +47,10 @@
       <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
       <Name>HealthTracker.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Core\HealthTracker.Core.csproj">
+      <Project>{BA120946-FCAA-4836-B915-0E18718DC6E9}</Project>
+      <Name>HealthTracker.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using HealthTracker.API;
+using HealthTracker.Core;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -15,6 +16,7 @@ namespace HealthTracker.WinRT
 #else
         private readonly BluetoothLEAdvertisementWatcher watcher;
 #endif
+        private static readonly ScaleReader reader = new ScaleReader();
 
         public WindowsHealthHub()
         {
@@ -56,22 +58,17 @@ namespace HealthTracker.WinRT
 
         private void Scale_Received(BluetoothLEAdvertisementWatcher sender, BluetoothLEAdvertisementReceivedEventArgs args)
         {
-            const DeviceKind kind = DeviceKind.Scale;
             var addr = args.BluetoothAddress;
             var ts = args.Timestamp;
             var data = args.Advertisement.DataSections.First(d => d.DataType == 255);
             var bytes = data.Data.ToArray();
-            var weightKg = BitConverter.ToUInt16(new[] { bytes[5], bytes[4] }, 0) / 10f;
-            var finished = bytes[6] != 255 && bytes[7] != 255;
-            OnHealthEvent?.Invoke(this, new SimpleData
+            foreach (var raw in reader.Read(bytes))
             {
-                Kind = kind,
-                Origin = addr,
-                Time = ts,
-                Data = weightKg,
-                Unit = Unit.kg,
-                Status = finished ? DataKind.Final : DataKind.Transitional
-            });
+                var parsed = (SimpleData)raw;
+                parsed.Origin = addr;
+                parsed.Time = ts;
+                OnHealthEvent?.Invoke(this, parsed);
+            }
         }
 #endif
     }

@@ -1,4 +1,5 @@
 ﻿using HealthTracker.API;
+using HealthTracker.Core;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -7,6 +8,8 @@ namespace HealthTracker.Linux
 {
     public class LinuxHealthHub : IHealthHub
     {
+        private static readonly ScaleReader reader = new ScaleReader();
+
         private bool shouldRun = true;
         private readonly Thread watcher;
 
@@ -36,19 +39,12 @@ namespace HealthTracker.Linux
                             {
                                 var bytes = new byte[44];
                                 Reflect.Call("Mono.Unix.Native.Syscall, Mono.Posix", "recv", sockFd, bytes, (ulong)bytes.Length, 0);
-                                var offset = 16;
-                                const DeviceKind kind = DeviceKind.Scale;
-                                var ts = new DateTimeOffset();
-                                var weightKg = BitConverter.ToUInt16(new[] { bytes[5 + offset], bytes[4 + offset] }, 0) / 10f;
-                                var finished = bytes[6 + offset] != 255 && bytes[7 + offset] != 255;
-                                OnHealthEvent?.Invoke(this, new SimpleData
+                                foreach (var raw in reader.Read(bytes, offset: 16))
                                 {
-                                    Kind = kind,
-                                    Time = ts,
-                                    Data = weightKg,
-                                    Unit = Unit.kg,
-                                    Status = finished ? DataKind.Final : DataKind.Transitional
-                                });
+                                    var parsed = (SimpleData)raw;
+                                    parsed.Time = DateTime.UtcNow;
+                                    OnHealthEvent?.Invoke(this, parsed);
+                                }
                             }
                         })
             {

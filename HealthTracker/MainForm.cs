@@ -1,6 +1,4 @@
 ﻿using HealthTracker.API;
-using HealthTracker.Linux;
-using HealthTracker.WinRT;
 using System;
 using System.Windows.Forms;
 
