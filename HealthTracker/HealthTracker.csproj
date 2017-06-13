@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -84,6 +84,10 @@
     <ProjectReference Include="..\HealthTracker.WinRT\HealthTracker.WinRT.csproj">
       <Project>{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}</Project>
       <Name>HealthTracker.WinRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Mac\HealthTracker.Mac.csproj">
+      <Project>{432F6568-2BB5-418D-AC89-5FD5D251E1E5}</Project>
+      <Name>HealthTracker.Mac</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
