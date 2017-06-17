@@ -35,8 +35,10 @@
   <ItemGroup>
     <Compile Include="BodyFatEstimate.cs" />
     <Compile Include="BodyMassIndex.cs" />
+    <Compile Include="DebugScaleReader.cs" />
     <Compile Include="HarrisBenedictBMR.cs" />
     <Compile Include="IBasalMetaCalc.cs" />
+    <Compile Include="IScaleReader.cs" />
     <Compile Include="LeanBodyMass.cs" />
     <Compile Include="MifflinStJeorBMR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

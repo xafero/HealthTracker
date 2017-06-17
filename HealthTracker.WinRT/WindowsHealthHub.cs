@@ -1,6 +1,5 @@
 ﻿using HealthTracker.API;
 using HealthTracker.Core;
-using System;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 #if MONO

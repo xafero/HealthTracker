@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace HealthTracker.Core
 {
-    public class ScaleReader
+    public class ScaleReader : IScaleReader
     {
-        public IEnumerable<IDataEvent> Read(byte[] bytes, int offset = 0)
+        public virtual IEnumerable<IDataEvent> Read(byte[] bytes, int offset = 0)
         {
             var deviceMode = bytes[offset + 11];
             var isHighPrecision = deviceMode % 10 == 2;
