@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Core", "Healt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Mac", "HealthTracker.Mac\HealthTracker.Mac.csproj", "{432F6568-2BB5-418D-AC89-5FD5D251E1E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Test", "HealthTracker.Test\HealthTracker.Test.csproj", "{CAF48347-506A-40BC-A235-F73D12931140}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF48347-506A-40BC-A235-F73D12931140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF48347-506A-40BC-A235-F73D12931140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF48347-506A-40BC-A235-F73D12931140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF48347-506A-40BC-A235-F73D12931140}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

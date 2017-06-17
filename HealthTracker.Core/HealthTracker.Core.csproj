@@ -33,9 +33,11 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodyFatEstimate.cs" />
     <Compile Include="BodyMassIndex.cs" />
     <Compile Include="HarrisBenedictBMR.cs" />
     <Compile Include="IBasalMetaCalc.cs" />
+    <Compile Include="LeanBodyMass.cs" />
     <Compile Include="MifflinStJeorBMR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RozaShizgalBMR.cs" />
