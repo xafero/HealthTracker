@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthTracker.Data;
+using System;
 using System.Windows.Forms;
 
 namespace HealthTracker
@@ -11,6 +12,7 @@ namespace HealthTracker
         [STAThread]
         static void Main()
         {
+            Database.Init();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
