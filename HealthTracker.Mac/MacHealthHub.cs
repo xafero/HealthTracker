@@ -19,12 +19,13 @@ namespace HealthTracker.Mac
             var rnd = new Random();
             while (true)
             {
+                var isFinal = rnd.Next(1, 100) > 50;
                 OnHealthEvent?.Invoke(this, new SimpleData
                 {
                     Data = (int)(rnd.NextDouble() * 100),
                     Kind = DeviceKind.Scale,
                     Origin = 42,
-                    Status = DataKind.Transitional,
+                    Status = isFinal ? DataKind.Final : DataKind.Transitional,
                     Time = DateTime.Now,
                     Unit = Unit.kg
                 });
