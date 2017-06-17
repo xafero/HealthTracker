@@ -33,8 +33,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodyMassIndex.cs" />
+    <Compile Include="HarrisBenedictBMR.cs" />
+    <Compile Include="IBasalMetaCalc.cs" />
+    <Compile Include="MifflinStJeorBMR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RozaShizgalBMR.cs" />
     <Compile Include="ScaleReader.cs" />
+    <Compile Include="Sex.cs" />
+    <Compile Include="WeightCategory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HealthTracker.API\HealthTracker.API.csproj">
