@@ -5,6 +5,11 @@
         None = 0,
 
         kg,
-        ohm
+        ohm,
+
+        bmi,
+        bmr,
+        bfe,
+        wcat
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace HealthTracker.Core
+﻿using HealthTracker.API;
+
+namespace HealthTracker.Core
 {
     /// <summary>
     /// Harris–Benedict equations revised by Mifflin and St Jeor in 1990

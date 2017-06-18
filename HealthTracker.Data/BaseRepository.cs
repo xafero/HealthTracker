@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using System;
+using System.Collections.Generic;
 
 namespace HealthTracker.Data
 {
@@ -19,6 +20,12 @@ namespace HealthTracker.Data
         {
             using (ISession session = Database.OpenSession())
                 return session.Get<T>(id);
+        }
+
+        public IList<T> List()
+        {
+            using (ISession session = Database.OpenSession())
+                return session.QueryOver<T>().List<T>();
         }
 
         public long RowCount()

@@ -7,7 +7,7 @@ namespace HealthTracker.API
         DeviceKind Kind { get; }
         ulong Origin { get; }
         DateTimeOffset Time { get; }
-        float Data { get; }
+        double Data { get; }
         Unit Unit { get; }
         DataKind Status { get; }
     }

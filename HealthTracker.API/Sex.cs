@@ -1,4 +1,4 @@
-﻿namespace HealthTracker.Core
+﻿namespace HealthTracker.API
 {
     public enum Sex : int
     {

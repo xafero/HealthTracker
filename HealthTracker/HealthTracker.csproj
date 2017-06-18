@@ -37,23 +37,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.2\lib\net45\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonDialog.Designer.cs">
+      <DependentUpon>PersonDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonDialog.resx">
+      <DependentUpon>PersonDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +94,10 @@
     <ProjectReference Include="..\HealthTracker.API\HealthTracker.API.csproj">
       <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
       <Name>HealthTracker.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Core\HealthTracker.Core.csproj">
+      <Project>{BA120946-FCAA-4836-B915-0E18718DC6E9}</Project>
+      <Name>HealthTracker.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\HealthTracker.Data\HealthTracker.Data.csproj">
       <Project>{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}</Project>

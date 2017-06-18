@@ -52,5 +52,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthTracker.API\HealthTracker.API.csproj">
+      <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
+      <Name>HealthTracker.API</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

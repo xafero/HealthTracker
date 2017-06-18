@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HealthTracker.Data
 {
@@ -13,5 +14,7 @@ namespace HealthTracker.Data
         void Delete(T person);
 
         long RowCount();
+
+        IList<T> List();
     }
 }

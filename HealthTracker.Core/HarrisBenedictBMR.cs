@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthTracker.API;
+using System;
 
 namespace HealthTracker.Core
 {

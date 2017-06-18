@@ -1,4 +1,6 @@
-﻿namespace HealthTracker.Core
+﻿using HealthTracker.API;
+
+namespace HealthTracker.Core
 {
     /// <summary>
     /// Body Fat Percentage Formula
