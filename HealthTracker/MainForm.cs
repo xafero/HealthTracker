@@ -16,15 +16,7 @@ namespace HealthTracker
         public MainForm()
         {
             InitializeComponent();
-            Type hubType;
-            var isApple = Environment.GetEnvironmentVariable("Apple_PubSub_Socket_Render") != null;
-            if (isApple)
-                hubType = Type.GetType("HealthTracker.Mac.MacHealthHub, HealthTracker.Mac");
-            else if (Environment.OSVersion.Platform == PlatformID.Unix)
-                hubType = Type.GetType("HealthTracker.Linux.LinuxHealthHub, HealthTracker.Linux");
-            else
-                hubType = Type.GetType("HealthTracker.WinRT.WindowsHealthHub, HealthTracker.WinRT");
-            hub = (IHealthHub)Activator.CreateInstance(hubType);
+            
             hub.OnHealthEvent += Hub_OnHealthEvent;
             persons = new PersonRepository();
             var person = persons.List().LastOrDefault();

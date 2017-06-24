@@ -1,4 +1,5 @@
-﻿using HealthTracker.Data;
+﻿using HealthTracker.API;
+using HealthTracker.Data;
 using System;
 using System.IO;
 using System.Web;
@@ -10,6 +11,8 @@ namespace HealthTracker.Web
 {
     public class Global : HttpApplication
     {
+        private static readonly IHealthHub hub = HealthHubFactory.CreateHub();
+
         protected void Application_Start()
         {
             SetCurrentDir(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data"));
