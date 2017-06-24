@@ -111,10 +111,6 @@
       <Project>{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}</Project>
       <Name>HealthTracker.WinRT</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HealthTracker.Mac\HealthTracker.Mac.csproj">
-      <Project>{432F6568-2BB5-418D-AC89-5FD5D251E1E5}</Project>
-      <Name>HealthTracker.Mac</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />

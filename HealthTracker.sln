@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Linux", "Heal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Core", "HealthTracker.Core\HealthTracker.Core.csproj", "{BA120946-FCAA-4836-B915-0E18718DC6E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Mac", "HealthTracker.Mac\HealthTracker.Mac.csproj", "{432F6568-2BB5-418D-AC89-5FD5D251E1E5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Test", "HealthTracker.Test\HealthTracker.Test.csproj", "{CAF48347-506A-40BC-A235-F73D12931140}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Data", "HealthTracker.Data\HealthTracker.Data.csproj", "{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Web", "HealthTracker.Web\HealthTracker.Web.csproj", "{09D10288-8369-4AA0-88EF-B14DC560E805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,6 @@ Global
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{432F6568-2BB5-418D-AC89-5FD5D251E1E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CAF48347-506A-40BC-A235-F73D12931140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CAF48347-506A-40BC-A235-F73D12931140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF48347-506A-40BC-A235-F73D12931140}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D10288-8369-4AA0-88EF-B14DC560E805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D10288-8369-4AA0-88EF-B14DC560E805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D10288-8369-4AA0-88EF-B14DC560E805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D10288-8369-4AA0-88EF-B14DC560E805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
