@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\HealthHubFactory.cs" />
+    <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +211,10 @@
     <ProjectReference Include="..\HealthTracker.API\HealthTracker.API.csproj">
       <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
       <Name>HealthTracker.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Core\HealthTracker.Core.csproj">
+      <Project>{BA120946-FCAA-4836-B915-0E18718DC6E9}</Project>
+      <Name>HealthTracker.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\HealthTracker.Data\HealthTracker.Data.csproj">
       <Project>{9DBDBC9C-615F-4D3B-A428-D81CE122B6D2}</Project>
