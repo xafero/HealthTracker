@@ -1,1 +1,52 @@
-﻿<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+﻿<div class="container">
+    <form class="form-person">
+        <h2 class="form-person-heading">Your data</h2>
+        <fieldset name="Common">
+            <label for="inputFirstName" class="sr-only">First name</label>
+            <input type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
+            <label for="inputLastName" class="sr-only">Last name</label>
+            <input type="text" id="inputLastName" class="form-control" placeholder="Last name" required autofocus>
+        </fieldset>
+        <fieldset name="Body">
+            <label for="inputSex" class="sr-only">Sex</label>
+            <div class="radio">
+                <label><input type="radio" name="inputSex" checked>Male</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="inputSex">Female</label>
+            </div>
+            <div class="form-group">
+                <div class='input-group date' id='birthPicker'>
+                    <label for="inputBirth" class="sr-only">Birthday</label>
+                    <input type='text' id="inputBirth" class="form-control" placeholder="Birthday" required autofocus>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <label for="inputSize" class="sr-only">Height</label>
+            <input type="text" id="inputSize" data-slider-id='sizeSlider' data-slider-min="145"
+                   data-slider-max="236" data-slider-step="1" data-slider-value="185" required autofocus />
+        </fieldset>
+        <br />
+        <p>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        </p>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#birthPicker').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#inputSize').slider({
+            formatter: function (value) {
+                return 'Height: ' + value + ' cm';
+            }
+        });
+    </script>
+</div>
