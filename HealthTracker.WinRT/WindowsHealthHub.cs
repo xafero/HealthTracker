@@ -1,7 +1,9 @@
 ﻿using HealthTracker.API;
 using HealthTracker.Core;
+using System;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 #if MONO
 #else
 using Windows.Devices.Bluetooth.Advertisement;
@@ -12,6 +14,7 @@ namespace HealthTracker.WinRT
     public class WindowsHealthHub : IHealthHub
     {
 #if MONO
+        private Thread thread;
 #else
         private readonly BluetoothLEAdvertisementWatcher watcher;
 #endif
@@ -20,6 +23,8 @@ namespace HealthTracker.WinRT
         public WindowsHealthHub()
         {
 #if MONO
+            thread = new Thread(Rand);
+            thread.Start();
 #else
             watcher = new BluetoothLEAdvertisementWatcher()
             {
@@ -30,11 +35,32 @@ namespace HealthTracker.WinRT
 #endif
         }
 
+        private void Rand()
+        {
+            var rnd = new Random();
+            Thread.Sleep(10 * 1000);
+            while (true)
+            {
+                var isFinal = rnd.Next(1, 100) > 50;
+                OnHealthEvent?.Invoke(this, new SimpleData
+                {
+                    Data = (int)(rnd.NextDouble() * 100),
+                    Kind = DeviceKind.Scale,
+                    Origin = 42,
+                    Status = isFinal ? DataKind.Final : DataKind.Transitional,
+                    Time = DateTime.Now,
+                    Unit = Unit.kg
+                });
+                Thread.Sleep(5 * 100);
+            }
+        }
+
         public event DataHandler OnHealthEvent;
 
         public void Dispose()
         {
 #if MONO
+            thread.Abort();
 #else
             watcher.Stop();
 #endif
