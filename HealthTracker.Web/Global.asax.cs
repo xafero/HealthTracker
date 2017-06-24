@@ -2,6 +2,7 @@
 using HealthTracker.Core;
 using HealthTracker.Data;
 using HealthTracker.Web.Controllers;
+using log4net;
 using log4net.Config;
 using System;
 using System.IO;
@@ -15,6 +16,8 @@ namespace HealthTracker.Web
 {
     public class Global : HttpApplication
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Global).Name);
+
         private static PersonRepository persons;
         private static IHealthHub hub;
         private static CalculateHub calc;
@@ -23,7 +26,12 @@ namespace HealthTracker.Web
         {
             XmlConfigurator.Configure();
             SetCurrentDir(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data"));
+            var root = Environment.CurrentDirectory;
+            var user = Environment.UserName;
+            var machine = Environment.MachineName;
+            log.Debug($"Starting app in '{root}' under '{user}' on '{machine}'...");
             Database.Init();
+            // Start logic
             persons = new PersonRepository();
             var person = persons.List().LastOrDefault();
             if (person == null)
@@ -43,17 +51,17 @@ namespace HealthTracker.Web
             calc = new CalculateHub(person);
             hub.OnHealthEvent += calc.OnRawHealthEvent;
             calc.OnHealthEvent += DataController.OnHealthEvent;
-            // Stop listener
-            AppDomain.CurrentDomain.DomainUnload += CurrentDomain_DomainUnload;
-            AppDomain.CurrentDomain.ProcessExit += CurrentDomain_DomainUnload;
             // ASP.NET
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            log.Debug("App started.");
         }
 
-        private void CurrentDomain_DomainUnload(object sender, EventArgs e)
+        protected void Application_End()
         {
+            log.Debug("Stopping app...");
             hub.Dispose();
+            log.Debug("App stopped.");
         }
     }
 }
