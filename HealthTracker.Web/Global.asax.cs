@@ -2,6 +2,7 @@
 using HealthTracker.Core;
 using HealthTracker.Data;
 using HealthTracker.Web.Controllers;
+using log4net.Config;
 using System;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace HealthTracker.Web
 
         protected void Application_Start()
         {
+            XmlConfigurator.Configure();
             SetCurrentDir(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data"));
             Database.Init();
             persons = new PersonRepository();

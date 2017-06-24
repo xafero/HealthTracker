@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Web.Mvc;
 using HealthTracker.API;
-using Mono.Unix.Native;
+using log4net;
 
 namespace HealthTracker.Web.Controllers
 {
     public class DataController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(DataController).Name);
+
         public static void OnHealthEvent(IHealthHub hub, IDataEvent data)
         {
-			throw new NotImplementedException();
+            log.Debug($" {hub} {data.Data} {data.Time} {data.Unit} ");
+			// throw new NotImplementedException();
         }
 
         /*
