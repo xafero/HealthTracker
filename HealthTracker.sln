@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.WinRT", "HealthTracker.WinRT\HealthTracker.WinRT.csproj", "{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.API", "HealthTracker.API\HealthTracker.API.csproj", "{B288355C-0953-4D64-AEAB-E72925636D3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Linux", "HealthTracker.Linux\HealthTracker.Linux.csproj", "{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}"
@@ -17,16 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Data", "Healt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Web", "HealthTracker.Web\HealthTracker.Web.csproj", "{09D10288-8369-4AA0-88EF-B14DC560E805}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Remote", "HealthTracker.Remote\HealthTracker.Remote.csproj", "{AB57A72C-0F5C-42A0-992A-183D1A902641}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6968F510-CA8C-4F86-B6AA-4D1ABA1C43D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{09D10288-8369-4AA0-88EF-B14DC560E805}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09D10288-8369-4AA0-88EF-B14DC560E805}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09D10288-8369-4AA0-88EF-B14DC560E805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB57A72C-0F5C-42A0-992A-183D1A902641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB57A72C-0F5C-42A0-992A-183D1A902641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB57A72C-0F5C-42A0-992A-183D1A902641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB57A72C-0F5C-42A0-992A-183D1A902641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

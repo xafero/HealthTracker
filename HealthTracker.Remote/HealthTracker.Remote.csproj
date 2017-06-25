@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA120946-FCAA-4836-B915-0E18718DC6E9}</ProjectGuid>
+    <ProjectGuid>{AB57A72C-0F5C-42A0-992A-183D1A902641}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HealthTracker.Core</RootNamespace>
-    <AssemblyName>HealthTracker.Core</AssemblyName>
+    <RootNamespace>HealthTracker.Remote</RootNamespace>
+    <AssemblyName>HealthTracker.Remote</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,28 +30,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlueBridgeNet.Data.API">
+      <HintPath>..\libs\BlueBridgeNet.Data.API.dll</HintPath>
+    </Reference>
+    <Reference Include="BlueBridgeNet.Json">
+      <HintPath>..\libs\BlueBridgeNet.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BodyFatEstimate.cs" />
-    <Compile Include="BodyMassIndex.cs" />
-    <Compile Include="CalculateHub.cs" />
-    <Compile Include="DebugScaleReader.cs" />
-    <Compile Include="HarrisBenedictBMR.cs" />
-    <Compile Include="IBasalMetaCalc.cs" />
-    <Compile Include="IScaleReader.cs" />
-    <Compile Include="LeanBodyMass.cs" />
-    <Compile Include="MifflinStJeorBMR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RozaShizgalBMR.cs" />
-    <Compile Include="ScaleReader.cs" />
-    <Compile Include="WeightCategory.cs" />
+    <Compile Include="RemoteHealthHub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HealthTracker.API\HealthTracker.API.csproj">
       <Project>{B288355C-0953-4D64-AEAB-E72925636D3A}</Project>
       <Name>HealthTracker.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HealthTracker.Core\HealthTracker.Core.csproj">
+      <Project>{BA120946-FCAA-4836-B915-0E18718DC6E9}</Project>
+      <Name>HealthTracker.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

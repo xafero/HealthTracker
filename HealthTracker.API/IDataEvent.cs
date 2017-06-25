@@ -5,7 +5,7 @@ namespace HealthTracker.API
     public interface IDataEvent
     {
         DeviceKind Kind { get; }
-        ulong Origin { get; }
+        string Origin { get; }
         DateTimeOffset Time { get; }
         double Data { get; }
         Unit Unit { get; }
