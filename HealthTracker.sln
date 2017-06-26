@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.API", "HealthTracker.API\HealthTracker.API.csproj", "{B288355C-0953-4D64-AEAB-E72925636D3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Linux", "HealthTracker.Linux\HealthTracker.Linux.csproj", "{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Core", "HealthTracker.Core\HealthTracker.Core.csproj", "{BA120946-FCAA-4836-B915-0E18718DC6E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthTracker.Test", "HealthTracker.Test\HealthTracker.Test.csproj", "{CAF48347-506A-40BC-A235-F73D12931140}"
@@ -27,10 +25,6 @@ Global
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B288355C-0953-4D64-AEAB-E72925636D3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AEFF4FD-07A8-4273-8893-4BB077DBCE45}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA120946-FCAA-4836-B915-0E18718DC6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
