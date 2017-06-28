@@ -44,6 +44,9 @@
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Measurement.cs" />
+    <Compile Include="MeasurementMap.cs" />
+    <Compile Include="MeasurementRepository.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonMap.cs" />
     <Compile Include="PersonRepository.cs" />

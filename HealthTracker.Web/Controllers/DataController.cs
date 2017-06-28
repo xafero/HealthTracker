@@ -1,28 +1,33 @@
 ﻿using System.Web.Mvc;
+using System.Collections.Generic;
 using HealthTracker.API;
 using log4net;
+using HealthTracker.Data;
 
 namespace HealthTracker.Web.Controllers
 {
     public class DataController : Controller
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(DataController).Name);
+        private static readonly IList<IDataEvent> events = new List<IDataEvent>();
+
+        private static readonly MeasurementRepository measures;
+
+        static DataController()
+        {
+            measures = new MeasurementRepository();
+        }
 
         public static void OnHealthEvent(IHealthHub hub, IDataEvent data)
         {
-            log.Debug($" {hub} {data.Data} {data.Time} {data.Unit} ");
-			// throw new NotImplementedException();
-        }
-
-        /*
-         *  private void Hub_OnHealthEvent(IHealthHub hub, IDataEvent data)
-        {
-            if (!currentMeasure.IsHandleCreated)
-                return;
-            currentMeasure.BeginInvoke((Action)(() =>
+            log.Debug($"{data.Time} {data.Origin} {data.Data} {data.Unit} {data.Kind} {data.Status}");
+            if (data.Status == DataKind.Final)
             {
-                currentMeasure.Text = $"{data.Data} {data.Unit} ({(data.Status == DataKind.Final ? "!" : "~")})";
-            }));
-        }   */
+                var measure = new Measurement(data);
+                measures.Save(measure);
+                return;
+            }
+            events.Add(data);
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace HealthTracker.Data
         static Database()
         {
             var mapper = new ModelMapper();
-            mapper.AddMappings(new List<Type> { typeof(PersonMap) });
+            mapper.AddMappings(new List<Type> { typeof(PersonMap), typeof(MeasurementMap) });
             Mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
             Config = new Configuration();
             Config.AddDeserializedMapping(Mapping, null);
